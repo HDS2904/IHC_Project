@@ -6,19 +6,19 @@ Se presentara una interfaz amigable de facil uso y aprendisaje
 
 Cabe recalcar que la compra son para personas de edad 18+ que cuentan con targeta de debito
 
-##Implementación
+## Implementación
     Python json (BackEnd)
     Base de Datos (MySQL)
     Manejo de API REST
 
 
-##Objetivo
+## Objetivo
     Usabilidad para los clientes
 
 
 
 
-#Créditos
+# Créditos
 ## IHCproject
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
