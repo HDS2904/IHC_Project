@@ -928,6 +928,9 @@ ol {
 /*---------------------
   Breadcrumb
 -----------------------*/
+.breadcrumb-option {
+	background-image: url("./assets/img/portada.jpg");
+}
 
 .breadcrumb__text h2 {
 	font-size: 46px;
@@ -1516,6 +1519,8 @@ ol {
 	display: inline-block;
 	margin-right: 20px;
 	cursor: pointer;
+	width: 80px; /* asdasd addddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsd asdasd asda sd */
+	height: 100px;
 }
 
 .shop__details__thumb__pic .pt.active {
@@ -2410,6 +2415,9 @@ ol {
 /* Medium Device = 1200px */
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
+	.testimonial__item p{
+		width: 750px;
+	}
 	.header__logo:after {
 		right: 0;
 	}
@@ -2427,6 +2435,9 @@ ol {
 /* Tablet Device = 768px */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+	.testimonial__item p{
+		width: 520px;
+	}
 	.canvas__open {
 		display: block;
 		font-size: 22px;
@@ -2640,6 +2651,9 @@ ol {
 /* Wide Mobile = 480px */
 
 @media only screen and (max-width: 767px) {
+	.testimonial__item p{
+		width: 350px;
+	}
 	.canvas__open {
 		display: block;
 		font-size: 22px;
@@ -2886,9 +2900,15 @@ ol {
 		padding: 30px 0 50px;
 	}
 	.testimonial__item {
+		width: 430px;
 		padding: 0px 40px;
 	}
 	.testimonial__item span {
+		font-size: 20px;
+		left: 18px;
+	}
+	.testimonial__item p {
+		width: 350px;
 		left: -12px;
 	}
 	.blog__item__pic p {

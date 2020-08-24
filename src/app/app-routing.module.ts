@@ -3,9 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Componentes creados
 import { HomeComponent } from './components/home/home.component';
+import { JuegosComponent } from './components/juegos/juegos.component';
+import { JuegoComponent } from './components/juego/juego.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'juegos', component: JuegosComponent },
+  { path: 'juego/:id', component: JuegoComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 

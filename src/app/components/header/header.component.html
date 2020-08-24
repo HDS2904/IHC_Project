@@ -13,7 +13,8 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="header__top__right">
-                        <a href="#" class="map-btn">Find us on map <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        <a href="#" class="map-btn">Registrarse</a>
+                        <a href="#" class="map-btn">Ingresar</a>
                         <div class="header__right__social">
                             <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                             <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
@@ -35,7 +36,7 @@
             <div class="col-lg-7">
                 <nav class="header__menu">
                     <ul>
-                        <li class="active"><a href="#">Inicio</a></li>
+                        <li class="active"><a [routerLink]="['/']">Inicio</a></li>
                         <li><a href="#">Tienda</a>
                             <ul class="dropdown">
                                 <li><a href="#">Nosotros</a></li>
@@ -44,7 +45,7 @@
                                 <li><a href="#">Contactenos</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Juegos</a>
+                        <li><a [routerLink]="['/juegos']">Juegos</a>
                             <ul class="dropdown">
                                 <li><a href="#">Play Station</a></li>
                                 <li><a href="#">Xbox</a></li>

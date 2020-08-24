@@ -1,1 +1,206 @@
-<p>juego works!</p>
+<!-- Shop Details Section Begin -->
+<section *ngIf="loading" class="shop-details">
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+</section>
+
+<section *ngIf="!loading" class="shop-details">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="shop__details__pic">
+                    <div *ngIf="juego.consoles[con]" class="shop__details__big__img">
+                        <img src={{juego.consoles[con].picture}} class="product__big__img" alt="">
+                    </div>
+                    <div class="shop__details__thumb__pic">
+                        <div *ngIf="juego.consoles[0]" class="pt active" data-imgbigurl="img/products/details/product-big-1.jpg">
+                            <img src={{juego.consoles[0].picture}} alt="">
+                        </div>
+                        <div *ngIf="juego.consoles[1]" class="pt" data-imgbigurl="img/products/details/product-big-2.jpg">
+                            <img src={{juego.consoles[1].picture}} alt="">
+                        </div>
+                        <div *ngIf="juego.consoles[2]" class="pt" data-imgbigurl="img/products/details/product-big-1.jpg">
+                            <img src={{juego.consoles[2].picture}} alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="shop__details__text">
+                    <h3>{{juego.name}}</h3>
+                    <div class="price">S/. {{juego.consoles[con].price}}</div>
+                    <p>{{juego.description}}</p>
+                    <p class="last-para">Not only does the Widebody offer superior performance for the standard</p>
+                    <div class="shop__details__widget">
+                        <div class="quantity">
+                            <div class="pro-qty">
+                                <span class="dec qtybtn" (click)="changeCant(1)">-</span>
+                                <input type="text" value={{cant}}>
+                                <span class="inc qtybtn" (click)="changeCant(2)">+</span>
+                            </div>
+                        </div>
+                        <a href="#" class="primary-btn">Agregar al carrito</a>
+                    </div>
+                    <ul>
+                        <li><span>Availability:</span>In Stock</li>
+                        <li><span>Category:</span>Whells, Tool</li>
+                        <li>
+                            <span>Share on:</span>
+                            <div class="share__links">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="shop__details__tab">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Description</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Reviews (1)</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                            <div class="tab__content__item">
+                                <h5>Products Infomation</h5>
+                                <p>Another very popular suit fabric is cotton. Similar to wool cotton is a
+                                    breathable flexible material. Unfortunately, cotton tends to crease easily,
+                                    meaning they don’t remain smart. Compared to wool fabrics cotton lacks luxury
+                                    feel.Silk is one of the most expensive fabrics however, it offers superior
+                                comfort and luxury. The material is great for regulating</p>
+                            </div>
+                            <div class="tab__content__item">
+                                <h5>Products Infomation</h5>
+                                <p>Another very popular suit fabric is cotton. Similar to wool cotton is a
+                                    breathable flexible material. Unfortunately, cotton tends to crease easily,
+                                    meaning they don’t remain smart. Compared to wool fabrics cotton lacks luxury
+                                    feel.Silk is one of the most expensive fabrics however, it offers superior
+                                comfort and luxury. The material is great for regulating</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tabs-2" role="tabpanel">
+                            <div class="tab__content__item">
+                                <h5>Products Infomation</h5>
+                                <p>Another very popular suit fabric is cotton. Similar to wool cotton is a
+                                    breathable flexible material. Unfortunately, cotton tends to crease easily,
+                                    meaning they don’t remain smart. Compared to wool fabrics cotton lacks luxury
+                                    feel.Silk is one of the most expensive fabrics however, it offers superior
+                                comfort and luxury. The material is great for regulating</p>
+                            </div>
+                            <div class="tab__content__item">
+                                <h5>Products Infomation</h5>
+                                <p>Another very popular suit fabric is cotton. Similar to wool cotton is a
+                                    breathable flexible material. Unfortunately, cotton tends to crease easily,
+                                    meaning they don’t remain smart. Compared to wool fabrics cotton lacks luxury
+                                    feel.Silk is one of the most expensive fabrics however, it offers superior
+                                comfort and luxury. The material is great for regulating</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Shop Details Section End -->
+
+<!-- Related Product Section Begin -->
+<section class="related-product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>Related Product</h2>
+                    <p>Lorem ipsum dolor sit amet sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic">
+                        <img src="img/products/product-1.png" alt="">
+                        <ul class="hover__item">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                            <li><a href="#"><i class="fa fa-exchange"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#">High Flow Fuel</a></h6>
+                        <div class="price">
+                            <span>$800.00</span>
+                            <a href="#">+Add To Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic">
+                        <img src="img/products/product-2.png" alt="">
+                        <ul class="hover__item">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                            <li><a href="#"><i class="fa fa-exchange"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#">Revolution Wheels</a></h6>
+                        <div class="price">
+                            <span>$800.00</span>
+                            <a href="#">+Add To Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic">
+                        <img src="img/products/product-3.png" alt="">
+                        <ul class="hover__item">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                            <li><a href="#"><i class="fa fa-exchange"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#">Tone Interior Kit</a></h6>
+                        <div class="price">
+                            <span>$800.00</span>
+                            <a href="#">+Add To Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic">
+                        <img src="img/products/product-4.png" alt="">
+                        <ul class="hover__item">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-eye"></i></a></li>
+                            <li><a href="#"><i class="fa fa-exchange"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#">Matte Gunmetal</a></h6>
+                        <div class="price">
+                            <span>$800.00</span>
+                            <a href="#">+Add To Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Related Product Section End -->
