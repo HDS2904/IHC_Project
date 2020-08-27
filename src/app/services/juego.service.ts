@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { map } from 'rxjs/operators';
 
@@ -15,18 +15,34 @@ export class JuegoService {
 
   constructor( private http: HttpClient ) { }
 
-  public getAll(): any {
-    return this.http.get(`${this.url}juego/`)
-      .pipe(
-        map( this.tratamiento)
-      );
+  public getAll( genero: number, offset: string): any {
+
+    const params = new HttpParams({
+      fromObject: {
+        limit: '5',
+        offset
+      }
+    });
+
+    if ( genero === 0 ){
+      return this.http.get(`${this.url}juego/`, { params })
+        .pipe(
+          map( this.tratamiento )
+        );
+    }else {
+      return this.http.get(`${this.url}juego/genero/${genero}`, { params })
+        .pipe(
+          map( this.tratamiento )
+        );
+    }
   }
 
   private tratamiento( juegoObj: object): JuegoModel[] {
     const juegos: JuegoModel[] = [];
+    juegoObj = juegoObj['results'];
 
-    if ( juegoObj === null ){
-      return [];
+    if ( juegoObj === [] ){
+      return [ ];
     }else {
       Object.keys( juegoObj ).forEach( key => {
         const ani: JuegoModel = juegoObj[key];
@@ -47,6 +63,20 @@ export class JuegoService {
 
   public getOne( id: number) {
     return this.http.get(`${this.url}juego/${id}`);
+  }
+
+  public getGen( genero: string, limit: string, offset: string) {
+    const params = new HttpParams({
+      fromObject: {
+        limit,
+        offset
+      }
+    });
+
+    return this.http.get(`${this.url}juego/`, { params })
+      .pipe(
+        map( this.tratamiento )
+      );
   }
 
 }

@@ -69,10 +69,10 @@
                     
                 </div>
                 <div class="shop__pagination">
-                    <a href="#">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#"><span class="arrow_carrot-right"></span></a>
+                    <div class="d-inline" *ngFor="let item of [1,2,3]; let i = index">
+                        <a (click)="getSec(i)">{{i+1}}</a>
+                    </div>
+                    <a (click)="getSec(-1)"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="col-lg-3 order-lg-1">
@@ -80,11 +80,11 @@
                     <div class="shop__sidebar__item">
                         <h4>Categories</h4>
                         <ul>
-                            <li><a href="#">Alabama <span>(75 Item)</span></a></li>
-                            <li><a href="#">Arizona <span>(54 Item)</span></a></li>
-                            <li><a href="#">Arkansas <span>(63 Item)</span></a></li>
-                            <li><a href="#">California <span>(18 Item)</span></a></li>
-                            <li><a href="#">Colorado <span>(36 Item)</span></a></li>
+                            <li><a href="#">Disparo </a></li>
+                            <li><a href="#">Deporte </a></li>
+                            <li><a href="#">Carreras </a></li>
+                            <li><a href="#">Aventura </a></li>
+                            <li><a href="#">Acción </a></li>
                         </ul>
                     </div>
                     <div class="shop__sidebar__item">
