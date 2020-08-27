@@ -1,0 +1,68 @@
+<div class="cuerpo">
+    <div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100" >
+				<div class="login100-pic efecto" aTilt [tiltSettings]="{scale:1.1}">
+					<img src="../../../assets/images/img-01.png" alt="IMG">
+				</div>
+
+				<form class="login100-form" (ngSubmit)="onSubmit()" autocomplete="off" [formGroup]="forma">
+					<span class="login100-form-title">
+						Login
+					</span>
+
+					<div class="wrap-input100">
+						<input class="input100" type="text" name="correo" placeholder="Correo"
+								formControlName="correo">
+						<span [ngClass]="{'focus-input100':true,'colorFocus':!formInvalido('correo'),'simbol-invalid':formInvalido('correo')}" ></span>
+						<span class="symbol-input100" [class.form-invalid]="formInvalido('correo')">
+							<i class="fa fa-envelope" aria-hidden="true" [class.simbol-invalid]="formInvalido('correo')"></i>
+						</span>
+					</div>
+					
+					<small *ngIf="requiereValor('correo')" class="error" >Se requiere un correo</small>
+					<small *ngIf="patronCorreoInvalido()" class="error" >Correo Invalido</small>
+
+					<div class="wrap-input100 ">
+						<input class="input100" type="password" name="password" placeholder="Contraseña"
+								formControlName="password">
+						<span [ngClass]="{'focus-input100':true,'colorFocus':!formInvalido('password'),'simbol-invalid':formInvalido('password')}"></span>
+						<span class="symbol-input100" [class.form-invalid]="formInvalido('password')">
+							<i class="fa fa-lock"  aria-hidden="true" [class.simbol-invalid]="formInvalido('password')"></i>
+						</span>
+					</div>
+
+					<small *ngIf="requiereValor('password')" class="error" >Se requiere una contraseña</small>
+					<small *ngIf="minlengthInvalido('password')" class="error" >Minimo 5 caracteres</small>				
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Ingresar
+						</button>
+					</div>
+
+					
+
+					<div class="text-center" style="padding-top:136px;">
+						<a class="txt2" [routerLink]="['/registro']">
+							¿No tienes cuenta? Registrate
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- <hr>
+<pre>
+    Estado del formulario {{forma.valid}}
+    <br>
+    Status {{forma.status}}
+</pre>
+
+<pre>
+    {{forma.value | json}}
+</pre> -->
