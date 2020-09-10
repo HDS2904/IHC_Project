@@ -1,5 +1,5 @@
 
-class Consoles {
+class Almacen {
     console: number;
     price: number;
     stock: number;
@@ -10,12 +10,11 @@ class Consoles {
 
 
 export class JuegoModel {
-    id: number;
-    genders: number[];
-    consoles: Consoles[];
-    name: string;
-    description: string;
-    release_day: string;
+    id_juego: number;
+    id_consola: number;
+    nombre: string;
+    generos: number[];
+    almacen: Almacen;
 
     constructor() {
 

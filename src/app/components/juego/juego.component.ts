@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JuegoService } from 'src/app/services/juego.service';
 import { ActivatedRoute } from '@angular/router';
-import { JuegoModel } from 'src/app/models/juego';
+import { JuegoDetailModel } from 'src/app/models/juegoDetail';
 
 @Component({
   selector: 'app-juego',
@@ -10,7 +10,7 @@ import { JuegoModel } from 'src/app/models/juego';
 })
 export class JuegoComponent implements OnInit {
 
-  juego: JuegoModel = new JuegoModel();
+  juego: JuegoDetailModel = new JuegoDetailModel();
   con: number;
   loading = false;
   cant = 1;
