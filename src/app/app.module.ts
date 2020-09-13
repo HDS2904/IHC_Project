@@ -14,6 +14,7 @@ import { JuegoComponent } from './components/juego/juego.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RegistroComponent } from './components/registro/registro.component';
     JuegoComponent,
     LoginComponent,
     RegistroComponent,
-    FooterComponent
+    FooterComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
