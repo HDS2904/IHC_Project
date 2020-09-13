@@ -15,47 +15,28 @@ export class JuegoService {
 
   constructor( private http: HttpClient ) { }
 
-  public getAll( genero: number, offset: string): any {
+  public getAll( ): any {
 
-    const params = new HttpParams({
-      fromObject: {
-        limit: '5',
-        offset
-      }
-    });
-
-    if ( genero === 0 ){
-      return this.http.get(`${this.url}juego/`, { params })
-        .pipe(
-          map( this.tratamiento )
-        );
-    }else {
-      return this.http.get(`${this.url}juego/genero/${genero}`, { params })
-        .pipe(
-          map( this.tratamiento )
-        );
-    }
+    // const params = new HttpParams({
+    //   fromObject: {
+    //     limit: '5',
+    //     offset
+    //   }
+    // });
+    return this.http.get(`${this.url}juego/`)
+      .pipe(
+        map( this.tratamiento )
+      );
   }
 
   private tratamiento( juegoObj: object): JuegoModel[] {
     const juegos: JuegoModel[] = [];
-    juegoObj = juegoObj['results'];
-
     if ( juegoObj === [] ){
       return [ ];
     }else {
       Object.keys( juegoObj ).forEach( key => {
         const ani: JuegoModel = juegoObj[key];
-        for (const iterator of ani.consoles){
-          const aux: JuegoModel = new JuegoModel();
-          aux.id = ani.id;
-          aux.consoles = [iterator];
-          aux.genders = ani.genders;
-          aux.name = ani.name;
-          aux.description = ani.description;
-          aux.release_day = ani.release_day;
-          juegos.push(aux);
-        }
+        juegos.push(ani);
       });
     }
     return juegos;
@@ -65,15 +46,8 @@ export class JuegoService {
     return this.http.get(`${this.url}juego/${id}`);
   }
 
-  public getGen( genero: string, limit: string, offset: string) {
-    const params = new HttpParams({
-      fromObject: {
-        limit,
-        offset
-      }
-    });
-
-    return this.http.get(`${this.url}juego/`, { params })
+  public getGender( id: number ) {
+    return this.http.get(`${this.url}juego/${id}/generos/`)
       .pipe(
         map( this.tratamiento )
       );

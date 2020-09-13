@@ -46,20 +46,20 @@
 
                 <div class="row">
 
-                    <div class="col-lg-4 col-md-4 col-sm-6" *ngFor="let item of juegos; let i = index">
+                    <div class="col-lg-4 col-md-4 col-sm-6" *ngFor="let item of panel; let i = index">
                         <div class="product__item">
                             <div class="product__item__pic">
-                                <img src={{item.consoles[0].picture}} alt="">
+                                <img class="product__item__pic__img" src={{item.almacen.picture}} alt="">
                                 <ul class="hover__item">
                                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a [routerLink]="['/juego',item.id + '-' + item.consoles[0].console]"><i class="fa fa-eye"></i></a></li>
+                                    <li><a [routerLink]="['/juego',item.id_juego + '-' + item.almacen.console]"><i class="fa fa-eye"></i></a></li>
                                     <li><a href="#"><i class="fa fa-exchange"></i></a></li>
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="#">{{item.name}}</a></h6>
+                                <h6><a [routerLink]="['/juego',item.id_juego + '-' + item.almacen.console]">{{item.nombre}}</a></h6>
                                 <div class="price">
-                                    <span>S/. {{item.consoles[0].price}}</span>
+                                    <span>S/. {{item.almacen.price}}</span>
                                     <a href="#">+Agregar al carrito</a>
                                 </div>
                             </div>
@@ -69,10 +69,11 @@
                     
                 </div>
                 <div class="shop__pagination">
-                    <div class="d-inline" *ngFor="let item of [1,2,3]; let i = index">
-                        <a (click)="getSec(i)">{{i+1}}</a>
+                    <a *ngIf="section > 1" (click)="getSec(-1)"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                    <div class="d-inline" *ngFor="let item of numSec; let i = index">
+                        <a (click)="getSec(i+1)">{{i+1}}</a>
                     </div>
-                    <a (click)="getSec(-1)"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                    <a *ngIf="juegos.length >= section*9" (click)="getSec(0)"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="col-lg-3 order-lg-1">
@@ -80,11 +81,11 @@
                     <div class="shop__sidebar__item">
                         <h4>Categories</h4>
                         <ul>
-                            <li><a href="#">Disparo </a></li>
-                            <li><a href="#">Deporte </a></li>
-                            <li><a href="#">Carreras </a></li>
-                            <li><a href="#">Aventura </a></li>
-                            <li><a href="#">Acción </a></li>
+                            <li><a (click)="getGen(2)" >Disparo </a></li>
+                            <li><a (click)="getGen(3)">Deporte </a></li>
+                            <li><a (click)="getGen(4)">Carreras </a></li>
+                            <li><a (click)="getGen(5)">Aventura </a></li>
+                            <li><a (click)="getGen(6)">Acción </a></li>
                         </ul>
                     </div>
                     <div class="shop__sidebar__item">

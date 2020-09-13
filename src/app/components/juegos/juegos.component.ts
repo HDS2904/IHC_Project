@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { JuegoModel } from 'src/app/models/juego';
 import { JuegoService } from 'src/app/services/juego.service';
+import { range } from 'rxjs';
 
 @Component({
   selector: 'app-juegos',
@@ -12,34 +13,69 @@ export class JuegosComponent implements OnInit {
 
   juegos: JuegoModel[] = [];
   loading = false;
+  panel: JuegoModel[] = [];
+
   genero: number;
   precio = 0;
   section: number;
+  numSec: number[] = [];
 
   constructor( private juegoService: JuegoService ) { }
 
   ngOnInit(): void {
     this.loading = true;
-    this.juegoService.getAll( 0, '1')
+    this.juegoService.getAll()
       .subscribe( resp => {
         this.juegos = resp;
+        this.getSec( 1 );
         this.loading = false;
+        this.numSec = Array( Math.floor((this.juegos.length / 9) + 1) );
       });
     this.section = 0;
     this.genero = 0;
   }
 
-  public getSec( sect: number){
-    if ( sect !== -1){
-      this.section = sect;
-    }else {
-      this.section++;
-    }
-    this.juegoService.getAll( this.genero, (5 * this.section + 1 ) + '' )
+  public getGen( id: number) {
+    this.juegoService.getGender( id )
       .subscribe( resp => {
         this.juegos = resp;
-        window.scrollTo(0, 0);
+        this.getSec( 1 );
+        this.loading = false;
+        this.numSec = Array( Math.floor((this.juegos.length / 9) + 1) );
       });
+  }
+
+  public getSec( sec: number ){
+    this.panel = [];
+    let ini: number;
+    let fin: number;
+
+    if ( sec > 0 ) {
+      this.section = sec;
+      ini = ( this.section - 1 ) * 9;
+      if ( this.juegos.length < 9 * sec ){
+        fin = this.juegos.length;
+      }else {
+        fin = this.section * 9;
+      }
+    } else if ( sec === 0) {
+        ini = this.section  * 9;
+        this.section++;
+        if ( this.juegos.length <= ( this.section + 1) * 9 ) {
+          fin = this.juegos.length;
+        }else {
+          fin = this.section * 9;
+        }
+    }else if (sec === -1 ) {
+      this.section--;
+      ini = ( this.section - 1 ) * 9;
+      fin = this.section * 9;
+    }
+
+    for (let i = ini; i < fin ; i++){
+      this.panel.push( this.juegos[i] );
+    }
+    window.scrollTo(0, 500);
   }
 
 }
