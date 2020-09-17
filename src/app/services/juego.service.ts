@@ -5,15 +5,20 @@ import { map } from 'rxjs/operators';
 
 import { JuegoModel } from '../models/juego';
 import { Observable } from 'rxjs';
+import { JuegoDetailModel } from '../models/juegoDetail';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JuegoService {
-
+  logeado:number=0;
+  jsCarros:JuegoModel[]=[];
   private url = 'https://jobra.herokuapp.com/';
 
   constructor( private http: HttpClient ) { }
+  public getCarros(){
+    return this.jsCarros;
+  }
 
   public getAll( ): any {
 

@@ -55,6 +55,20 @@
                         </li>
                         <li><a href="#">Populares</a></li>
                         <li><a href="#">Ayuda</a></li>
+                        <li><a [routerLink]="['/carro']" routerLinkActive="active">Carro</a>
+                            <ul class="dropdown">
+                                    <li *ngFor="let juego of juegos;let i=index">    
+                                        <div class="text pl-3" *ngIf="i<2">
+                                            <a><img src="{{juego.almacen.picture}}" alt="img" width="30px"></a>
+                                            <a>{{ juego.nombre }}</a>
+                                        </div>
+                                    </li>
+                                    <a class="dropdown-item text-center btn-link d-block w-100" routerLink="/carro" routerLinkActive="active">
+                                        Ver todos
+                                        <span class="ion-ios-arrow-round-forward"></span>
+                                    </a>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
             </div>

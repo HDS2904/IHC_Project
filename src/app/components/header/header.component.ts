@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { JuegoModel } from 'src/app/models/juego';
+import { JuegoService } from 'src/app/services/juego.service';
 
 @Component({
   selector: 'app-header',
@@ -6,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  juegos:JuegoModel[]=[];
+  constructor(private juegosService: JuegoService) { 
+    this.juegos=juegosService.getCarros();
+  }
 
   ngOnInit(): void {
   }
