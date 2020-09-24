@@ -72,6 +72,7 @@ export class PerfilComponent implements OnInit {
     this.usuario.tarjeta= JSON.parse(localStorage.getItem('user')).cliente.credit_card;
   }
 
+  //:Vvv
   llenarDatos(){
     this.usuario.correo=this.forma.controls['correo'].value;
     this.usuario.username=this.forma.controls['username'].value;
