@@ -13,8 +13,13 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="header__top__right">
-                        <a [routerLink]="['/registro']" class="map-btn">Registrarse</a>
-                        <a [routerLink]="['/login']" href="#" class="map-btn">Ingresar</a>
+                        <a *ngIf="!logeado" [routerLink]="['/registro']" class="map-btn">Registrarse</a>
+                        <a *ngIf="!logeado" [routerLink]="['/login']" href="#" class="map-btn">Ingresar</a>
+                        <a  *ngIf="logeado"  class="map-btn">
+                            <i class="fa fa-user" style="margin-right:5px;"></i>
+                            {{username}}
+                        </a>
+                        <a *ngIf="logeado" href="" class="map-btn" (click)="salir()">Salir</a>
                         <div class="header__right__social">
                             <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                             <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
@@ -55,6 +60,7 @@
                         </li>
                         <li><a href="#">Populares</a></li>
                         <li><a href="#">Ayuda</a></li>
+                        <li *ngIf="logeado"><a [routerLink]="['/perfil']">Perfil</a></li>
                     </ul>
                 </nav>
             </div>

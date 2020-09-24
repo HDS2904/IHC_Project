@@ -1,4 +1,5 @@
 export class UsuarioModel {
+    id:number;
     nombres:string;
     apellidos:string;
     telefono:string;
@@ -8,6 +9,7 @@ export class UsuarioModel {
     password:string;
     c_password:string;
     is_active:boolean;
+    imagen:string;
     tarjeta:string;
     saldo:number;
 

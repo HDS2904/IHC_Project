@@ -1,0 +1,54 @@
+.izquierdo {
+    border-right: solid 1px whitesmoke;
+    padding:20px 35px;
+}
+
+.derecho {
+    border-left: solid 1px whitesmoke;
+    padding-bottom: 20px;
+}
+
+
+.izquierdo label {
+    background-color: springgreen;
+    cursor: pointer;
+    display: block;
+    margin:20px 0px;
+    width:100%;
+    padding:10px 0;
+    text-align: center;
+    border-radius: 15px;
+    /* Style as you please, it will become the visible UI component. */
+ }
+
+ .boton-subir {
+     display:block;
+     margin:10px auto;
+ }
+ 
+ .imagen {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+ }
+
+
+.botones {
+    display:flex;
+    justify-content: space-around   ;
+}
+
+.foto {
+    background-color:orange;
+    width:100%;
+}
+
+.foto img {
+    width:100%;
+}
+
+.caja {
+    border-radius:40px;
+    border:solid 3px slateblue;
+    margin-bottom: 50px;
+}

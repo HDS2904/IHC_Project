@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   patron:string = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$";
   
   usuario:UsuarioModel;
-
+  exito:boolean;
   msgError:string;
   forma:FormGroup;
   constructor(private fb:FormBuilder,
@@ -76,17 +76,19 @@ export class LoginComponent implements OnInit {
     });
     Swal.showLoading();
     this.auth.login(this.usuario).subscribe(resp => {
+      this.exito=true;
       console.log(resp);
       Swal.close();
       this.router.navigate(['/home']);
     }, err => {
+      this.exito=false
       console.log(err);
       Swal.fire({
         icon: 'error',
         title: 'Error al autenticar',
         text: 'La cuenta no existe o datos incorrectos.'
       });
-    })
+    });
 
   }
 

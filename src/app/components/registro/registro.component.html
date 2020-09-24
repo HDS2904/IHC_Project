@@ -6,7 +6,7 @@
 					<img src="../../../assets/img/img-01.png" aTilt [tiltSettings]="{scale:1.1}" alt="IMG">
 				</div>
 
-				<form class="signup100-form" (ngSubmit)="onSubmit()" autocomplete="off" [formGroup]="forma">
+				<form class="signup100-form"  autocomplete="off" [formGroup]="forma">
 					<span class="signup100-form-title">
 						Registro
                     </span>
@@ -31,7 +31,7 @@
                     <small *ngIf="requiereValor('apellidos')" class="error" >Se requiere sus apellidos</small>
 
                     <div class="wrap-input100">
-						<input class="input100" type="text" name="telefono" placeholder="Telefono"
+						<input class="input100" type="text" name="telefono" placeholder="Telefono (999999999)"
 								formControlName="telefono" >
 						<span [ngClass]="{'focus-input100':true,'colorFocus':!formInvalido('telefono'),'simbol-invalid':formInvalido('telefono')}" ></span>
 						<span class="symbol-input100" [class.form-invalid]="formInvalido('telefono')">
@@ -60,10 +60,10 @@
 					</div>
                     <small *ngIf="requiereValor('username')" class="error" >Se requiere un username</small>
                     <small *ngIf="minlengthInvalido('username')" class="error" >Minimo 4 caracteres</small>
-                    
+                    <small *ngIf="maxlengthInvalido('username')" class="error" >Maximo 20 caracteres</small>
 
 					<div class="wrap-input100">
-						<input class="input100" type="text" name="correo" placeholder="Correo"
+						<input class="input100" type="text" name="correo" placeholder="Correo (ejm@ejm.com)"
 								formControlName="correo" >
 						<span [ngClass]="{'focus-input100':true,'colorFocus':!formInvalido('correo'),'simbol-invalid':formInvalido('correo')}" ></span>
 						<span class="symbol-input100" [class.form-invalid]="formInvalido('correo')">
@@ -116,7 +116,7 @@
 	</div>
 </div>
 
-<hr>
+<!-- <hr>
 <pre>
     Estado del formulario {{forma.valid}}
     <br>
@@ -125,4 +125,4 @@
 
 <pre>
     {{forma.value | json}}
-</pre>
+</pre> -->

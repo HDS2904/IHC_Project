@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router'
-import {UsuarioModel} from '../../models/usuario.model'
+import {Router} from '@angular/router';
+import {UsuarioModel} from '../../models/usuario.model';
 import {ValidadoresService} from '../../services/validadores.service';
 import {AuthService} from '../../services/auth.service';
 
@@ -67,7 +67,7 @@ export class RegistroComponent implements OnInit {
       apellidos:['',Validators.required],
       telefono:['',[Validators.maxLength(9),Validators.pattern("[0-9]*")]],
       fech_nac:[''],
-      username:['',[Validators.required,Validators.minLength(4)]],
+      username:['',[Validators.required,Validators.minLength(4),Validators.maxLength(20)]],
       correo:['',[Validators.required,
                 Validators.pattern(this.patron)]],
       password:['',[Validators.required,Validators.minLength(8)]],

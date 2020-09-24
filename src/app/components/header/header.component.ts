@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  logeado:boolean;
+  username:string;
+  constructor(private auth:AuthService) {
+    
+    if(localStorage.getItem('token')){
+      this.logeado=true;
+    }else {
+      this.logeado=false;
+    }
 
-  constructor() { }
-
-  ngOnInit(): void {
+    
   }
 
+  ngOnInit(): void {
+    setTimeout(() => {
+      if(localStorage.getItem('user')){
+        this.username=JSON.parse(localStorage.getItem('user')).username;
+      }
+    },500)
+    
+    console.log(this.logeado);
+  }
+
+  salir(){
+    this.auth.logout();
+  }
+  
 }

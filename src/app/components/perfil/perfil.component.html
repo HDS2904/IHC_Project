@@ -1,1 +1,146 @@
-<p>perfil works!</p>
+<app-header></app-header>
+ <!-- Blog Details Section Begin -->
+ 
+<div class="container " style="margin-top: 20px;">
+    <div class="row caja">
+        <div class="col-3 izquierdo " >
+            <div class="foto">
+                <img  src="../../../assets/img/foto-perfil.jpg" alt="foto-perfil" #imagen>
+            </div>
+            <form action="" (ngSubmit)="subirImagen()" autocomplete="off" [formGroup]="formaImagen">
+                <label for="imagen" >
+                    <i class="fa fa-upload"></i>   
+                    Subir foto
+                </label>
+                <input type="file" name="imagen" accept="image/x-png,image/jpeg" id="imagen" class="imagen" formControlName="imagen"/>
+                <!-- <button class="btn btn-primary boton-subir"  type="submit">Enviar</button> -->
+               
+            </form>
+            <!-- [src]="forma.imagen.value" -->
+           
+  
+        </div>
+        <div class="col-9 derecho " >
+            
+            <div class="btn-group btn-group-toggle" data-toggle="buttons" style="margin:10px 20px;">
+                <label class="btn btn-secondary" [class.active]="activo" (click)="activo=true">
+                    <input type="radio" name="options" id="option1" checked> Perfil
+                </label>
+                <label class="btn btn-secondary" [class.active]="!activo" (click)="activo=false">
+                    <input type="radio" name="options" id="option2"> Compras
+                </label>
+            </div>
+            <form action="" *ngIf="activo" (ngSubmit)="onSubmit()" autocomplete="off" [formGroup]="forma">
+                <div class="perfil"  >
+                    <div class="form-row">
+                        <div class="col-md-1"></div>
+
+                        <div class="form-group col-md-4">
+                            <label for="inputNombres">Nombres</label>
+                            <input type="text" class="form-control is-invalid" [class.is-invalid]="formInvalido('nombres')" id="inputNombres" formControlName="nombres" readonly #inputP>
+                            <div *ngIf="requiereValor('nombres')" class="invalid-feedback">
+                                Se requiere su nombre completo
+                            </div>
+                        </div>
+
+                        <div class="col-md-2"></div>
+
+                        <div class="form-group col-md-4">
+                            <label for="inputApellidos">Apellidos</label>
+                            <input type="text" class="form-control is-invalid" [class.is-invalid]="formInvalido('apellidos')" id="inputApellidos" formControlName="apellidos" readonly #inputP>
+                            <div *ngIf="requiereValor('apellidos')" class="invalid-feedback">
+                                Se requiere sus apellidos
+                            </div>
+                        </div>
+
+                        <div class="col-md-1"></div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-md-1"></div>
+
+                        <div class="form-group col-md-4">
+                            <label for="inputUsuario">Usuario</label>
+                            <input type="text" class="form-control is-invalid" [class.is-invalid]="formInvalido('username')" id="inputUsuario" formControlName="username" readonly #inputP>
+                            <div *ngIf="requiereValor('username')" class="invalid-feedback">
+                                Se requiere un username
+                            </div>
+                            <div *ngIf="minlengthInvalido('username')" class="invalid-feedback">
+                                Minimo 4 caracteres
+                            </div>
+                        </div>
+
+                        <div class="col-md-2"></div>
+
+                        <div class="form-group col-md-4">
+                            <label for="inputEmail">Email</label>
+                            <input type="email" class="form-control is-invalid" [class.is-invalid]="formInvalido('correo')" id="inputEmail" formControlName="correo" readonly #inputP>
+                            <div *ngIf="requiereValor('correo')" class="invalid-feedback">
+                                Se requiere un correo
+                            </div>
+                            <div *ngIf="patronCorreoInvalido()" class="invalid-feedback">
+                                Correo Invalido
+                            </div>
+                        </div>
+
+                        <div class="col-md-1"></div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-md-1"></div>
+
+                        <div class="form-group col-md-4">
+                            <label for="inputTelefono">Telefono</label>
+                            <input type="text" class="form-control is-invalid" [class.is-invalid]="formInvalido('telefono')" id="inputTelefono" formControlName="telefono" readonly #inputP>
+                            <div *ngIf="maxlengthInvalido('telefono')" class="invalid-feedback">
+                                Maximo 9 digitos
+                            </div>
+                            <div *ngIf="soloNumeros()" class="invalid-feedback">
+                                Solo numeros
+                            </div>
+                        </div>
+
+                        <div class="col-md-2"></div>
+
+                        <div class="form-group col-md-4">
+                            <label for="inputTarjeta">Tarjeta</label>
+                            <input type="text" class="form-control is-invalid" [class.is-invalid]="formInvalido('tarjeta')" id="inputTarjeta" formControlName="tarjeta" readonly #inputP>
+                            <div *ngIf="maxlengthInvalido('tarjeta')" class="invalid-feedback">
+                                Maximo 16 digitos
+                            </div>
+                            <!-- <div *ngIf="soloNumeros()" class="invalid-feedback">
+                                Solo numeros
+                            </div> -->
+                        </div>
+
+                        <div class="col-md-1"></div>
+
+                    </div>
+
+                 
+
+
+                </div>
+                <div class="botones">
+                    <button *ngIf="btnActivado" class="btn btn-primary centrarBtn" (click)="noReadOnly()" type="button">Editar</button>
+                    <button *ngIf="!btnActivado" class="btn btn-primary centrarBtn"  type="submit">Enviar</button>
+                    <button *ngIf="!btnActivado" class="btn btn-primary centrarBtn" (click)="ReadOnly()" type="button">Deshacer Accion</button>
+                </div>
+                
+
+            </form>
+
+            <div class="compras" *ngIf="!activo">
+                gooo
+            </div>
+            
+                
+            
+           
+        </div>
+     
+    </div>
+
+    
+</div>
+<app-footer></app-footer>
