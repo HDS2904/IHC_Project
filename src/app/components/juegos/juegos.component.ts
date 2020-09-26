@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { JuegoModel } from 'src/app/models/juego';
 import { JuegoService } from 'src/app/services/juego.service';
@@ -10,16 +10,14 @@ import { range } from 'rxjs';
   styleUrls: ['./juegos.component.css']
 })
 export class JuegosComponent implements OnInit {
-
   juegos: JuegoModel[] = [];
   loading = false;
   panel: JuegoModel[] = [];
-
   genero: number;
   precio = 0;
   section: number;
   numSec: number[] = [];
-
+  //@Output() aCarro= new EventEmitter<JuegoModel[]>();
   constructor( private juegoService: JuegoService ) { }
 
   ngOnInit(): void {
@@ -33,6 +31,19 @@ export class JuegosComponent implements OnInit {
       });
     this.section = 0;
     this.genero = 0;
+  }
+  public nJuegoCarro(item:JuegoModel){
+    if(this.juegoService.jsCarros.length==0){
+      this.juegoService.jsCarros.push(item);
+    }
+    else{
+      for(let i=0;i<this.juegoService.jsCarros.length;i++){
+        if(item.id_juego!=this.juegoService.jsCarros[i].id_juego){
+          this.juegoService.jsCarros.push(item);
+        }
+      }
+    }
+    //this.aCarro.emit(this.juegosCarro);
   }
 
   public getGen( id: number) {

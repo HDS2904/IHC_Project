@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { JuegoModel } from 'src/app/models/juego';
+import { JuegoService } from 'src/app/services/juego.service';
 
 @Component({
   selector: 'app-header',
@@ -9,18 +11,20 @@ import { AuthService } from 'src/app/services/auth.service';
 export class HeaderComponent implements OnInit {
   logeado:boolean;
   username:string;
-  constructor(private auth:AuthService) {
-    
+  juegos:JuegoModel[]=[];
+  constructor(private auth:AuthService,
+    private juegosService: JuegoService) {
+      this.juegos=juegosService.getCarros();
     if(localStorage.getItem('token')){
       this.logeado=true;
     }else {
       this.logeado=false;
     }
-
-    
   }
+    
 
-  ngOnInit(): void {
+
+    ngOnInit(): void {
     setTimeout(() => {
       if(localStorage.getItem('user')){
         this.username=JSON.parse(localStorage.getItem('user')).username;

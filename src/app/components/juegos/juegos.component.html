@@ -60,7 +60,7 @@
                                 <h6><a [routerLink]="['/juego',item.id_juego + '-' + item.almacen.console]">{{item.nombre}}</a></h6>
                                 <div class="price">
                                     <span>S/. {{item.almacen.price}}</span>
-                                    <a href="#">+Agregar al carrito</a>
+                                    <a (click)="nJuegoCarro(item)">+Agregar al carrito</a>
                                 </div>
                             </div>
                         </div>
@@ -76,6 +76,7 @@
                     <a *ngIf="juegos.length >= section*9" (click)="getSec(0)"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
             </div>
+
             <div class="col-lg-3 order-lg-1">
                 <div class="shop__sidebar">
                     <div class="shop__sidebar__item">

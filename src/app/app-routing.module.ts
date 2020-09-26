@@ -9,6 +9,8 @@ import { JuegoComponent } from './components/juego/juego.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { CarroComponent } from './components/carro/carro.component';
+import { CompraComponent } from './components/compra/compra.component';
 
 
 const routes: Routes = [
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path:'login', component:LoginComponent},
   { path:'registro',component:RegistroComponent},
   { path:'perfil',component:PerfilComponent, canActivate:[AuthGuard]},
+  { path:'carro', component:CarroComponent},
+  { path:'compra',component:CompraComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 

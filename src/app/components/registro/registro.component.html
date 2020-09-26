@@ -6,7 +6,7 @@
 					<img src="../../../assets/img/img-01.png" aTilt [tiltSettings]="{scale:1.1}" alt="IMG">
 				</div>
 
-				<form class="signup100-form"  autocomplete="off" [formGroup]="forma">
+				<form class="signup100-form"  (ngSubmit)="onSubmit()" autocomplete="off"  [formGroup]="forma">
 					<span class="signup100-form-title">
 						Registro
                     </span>
@@ -97,7 +97,7 @@
                     <small *ngIf="confirmarPassword()" class="error" >Los valores deben ser iguales</small>
 
 					<div class="container-signup100-form-btn">
-						<button class="signup100-form-btn">
+						<button type="submit" class="signup100-form-btn">
 							Registrar
 						</button>
 					</div>

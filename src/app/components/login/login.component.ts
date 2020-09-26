@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/services/auth.service';
 
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { JuegoService } from 'src/app/services/juego.service';
 
 @Component({
   selector: 'app-login',
@@ -21,12 +22,12 @@ export class LoginComponent implements OnInit {
   forma:FormGroup;
   constructor(private fb:FormBuilder,
               private auth:AuthService,
-              private router:Router) {
+              private router:Router,
+              private juegos:JuegoService) {
     this.crearFormulario();
   }
 
   ngOnInit(): void {
-
     this.usuario = new UsuarioModel();
 
   }
@@ -80,6 +81,7 @@ export class LoginComponent implements OnInit {
       console.log(resp);
       Swal.close();
       this.router.navigate(['/home']);
+      this.juegos.logeado=1;
     }, err => {
       this.exito=false
       console.log(err);

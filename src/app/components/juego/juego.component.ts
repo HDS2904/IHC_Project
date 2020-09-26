@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JuegoService } from 'src/app/services/juego.service';
 import { ActivatedRoute } from '@angular/router';
 import { JuegoDetailModel } from 'src/app/models/juegoDetail';
+import { JuegoModel } from 'src/app/models/juego';
 
 @Component({
   selector: 'app-juego',
@@ -14,7 +15,7 @@ export class JuegoComponent implements OnInit {
   con: number;
   loading = false;
   cant = 1;
-
+  id:Number;
   constructor( private juegoService: JuegoService, private router: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -26,10 +27,21 @@ export class JuegoComponent implements OnInit {
       this.juegoService.getOne( param[0] )
         .subscribe( (resp: any) => {
           this.juego = resp;
+          this.id=Number(param[0]);
           this.selectConsole(param[1]);
           this.loading = false;
         });
     }
+  }
+  public aCarro(){
+    const juegoafter:JuegoModel[]=this.juegoService.getAll();
+    for(let i=0;i<juegoafter.length;i++){
+      if(juegoafter[i].id_juego==this.id){
+        this.juegoService.jsCarros.push(juegoafter[i]);
+        console.log('Existe');
+      }
+    }
+    console.log('No existe?');
   }
 
   private selectConsole(pos: number){
