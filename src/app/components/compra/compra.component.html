@@ -9,20 +9,20 @@
                         <div class="row align-items-end">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="firstname">First Name</label>
-                                    <input type="text" class="form-control" placeholder="Juanito" readonly required>
+                                    <label for="firstname">Nombre</label>
+                                    <input type="text" class="form-control" value="Bryan" readonly required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="lastname">Last Name</label>
-                                    <input type="text" class="form-control" placeholder="Perez" readonly required>
+                                    <label for="lastname">Apellido</label>
+                                    <input type="text" class="form-control" value="Anton" readonly required>
                                 </div>
                             </div>
                             <div class="w-100"></div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="country">State / Country</label>
+                                    <label for="country">Distrito</label>
                                     <div class="select-wrap">
                                         <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                                         <select name="" id="" class="form-control">
@@ -39,54 +39,27 @@
                             <div class="w-100"></div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="streetaddress">Street Address</label>
-                                    <input type="text" class="form-con  trol" placeholder="House number and street name"
+                                    <label for="streetaddress">Departamento</label><br>
+                                    <input type="text" class="form-con  trol" placeholder="departamento"
                                         required>
                                 </div>
                             </div>
+                            <div class="w-100"></div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control"
-                                        placeholder="Appartment, suite, unit etc: (optional)">
+                                    <label for="towncity">Provincia</label>
+                                    <input type="text" class="form-control" placeholder="provincia" required>
                                 </div>
                             </div>
                             <div class="w-100"></div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="towncity">Town / City</label>
-                                    <input type="text" class="form-control" placeholder="" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="postcodezip">Postcode / ZIP *</label>
-                                    <input type="text" class="form-control" placeholder="">
+                                    <label for="emailaddress">Email</label>
+                                    <input type="email" class="form-control" readonly value="bryan@gmail.com" required>
                                 </div>
                             </div>
                             <div class="w-100"></div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="phone">Phone</label>
-                                    <input type="text" class="form-control" name="telefono" placeholder="Telefono"
-                                        formControlName="telefono">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="emailaddress">Email Address</label>
-                                    <input type="email" class="form-control" placeholder="" required>
-                                </div>
-                            </div>
-                            <div class="w-100"></div>
-                            <div class="col-md-12">
-                                <div class="form-group mt-4">
-                                    <div class="radio">
-                                        <label class="mr-3"><input type="radio" name="optradio"> Create an Account?
-                                        </label>
-                                        <label><input type="radio" name="optradio"> Ship to different address</label>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                     </form><!-- END -->
 
@@ -124,7 +97,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p><a href="#" class="btn btn-primary py-3 px-4">Realizar pedido</a></p>
+                                <a (click)="accion()" class="btn btn-primary py-3 px-4">Realizar pedido</a>
                             </div>
                         </div>
                     </div>

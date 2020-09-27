@@ -35,6 +35,7 @@ export class HeaderComponent implements OnInit {
   }
 
   salir(){
+    this.juegosService.logeado=0;
     this.auth.logout();
   }
   
