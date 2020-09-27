@@ -35,7 +35,7 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="header__logo">
-                    <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                    <a href="./index.html"><img class="logo_img" src="../../../assets/img/logo.jpeg" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-7">
@@ -44,10 +44,9 @@
                         <li class="active"><a [routerLink]="['/']">Inicio</a></li>
                         <li><a href="#">Tienda</a>
                             <ul class="dropdown">
-                                <li><a href="#">Nosotros</a></li>
-                                <li><a href="#">Servicios</a></li>
-                                <li><a href="#">Detalles</a></li>
-                                <li><a href="#">Contactenos</a></li>
+                                <li><a [routerLink]="['/nosotros']">Nosotros</a></li>
+                                <li><a [routerLink]="['/servicios']">Servicios</a></li>
+                                <li><a [routerLink]="['/contactenos']">Contactenos</a></li>
                             </ul>
                         </li>
                         <li><a [routerLink]="['/juegos']">Juegos</a>
@@ -58,9 +57,6 @@
                                 <li><a href="#">Otros</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Populares</a></li>
-                        <li><a href="#">Ayuda</a></li>
-                        <li *ngIf="logeado"><a [routerLink]="['/perfil']">Perfil</a></li>
                         <li><a [routerLink]="['/carro']" routerLinkActive="active">Carro</a>
                             <ul class="dropdown">
                                     <li *ngFor="let juego of juegos;let i=index">    
@@ -75,6 +71,9 @@
                                     </a>
                             </ul>
                         </li>
+                        <li><a [routerLink]="['/ayuda']">Ayuda</a></li>
+                        <li *ngIf="logeado"><a [routerLink]="['/perfil']">Perfil</a></li>
+                        
                     </ul>
                 </nav>
             </div>

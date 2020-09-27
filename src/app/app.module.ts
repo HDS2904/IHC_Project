@@ -18,6 +18,10 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { CarroComponent } from './components/carro/carro.component';
 import { CompraComponent } from './components/compra/compra.component';
+import { AyudaComponent } from './components/ayuda/ayuda.component';
+import { NosotrosComponent } from './components/nosotros/nosotros.component';
+import { ServiciosComponent } from './components/servicios/servicios.component';
+import { ContactenosComponent } from './components/contactenos/contactenos.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { CompraComponent } from './components/compra/compra.component';
     FooterComponent,
     PerfilComponent,
     CarroComponent,
-    CompraComponent
+    CompraComponent,
+    AyudaComponent,
+    NosotrosComponent,
+    ServiciosComponent,
+    ContactenosComponent
   ],
   imports: [
     BrowserModule,
