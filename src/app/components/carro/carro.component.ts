@@ -46,6 +46,7 @@ constructor( private juegoService: JuegoService, private router:Router){
     this.section = 0;
     this.genero = 0;
     this.precioTotal();
+    this.juegos=this.juegoService.jsCarros;
   }
   public deleteJuegoCarro(juego){
     for(let i=0;i<this.panel.length;i++){
