@@ -11,12 +11,15 @@ import { JuegoModel } from 'src/app/models/juego';
 })
 export class JuegoComponent implements OnInit {
 
+  juegos: JuegoModel[];
   juego: JuegoDetailModel = new JuegoDetailModel();
   con: number;
   loading = false;
   cant = 1;
   id:Number;
-  constructor( private juegoService: JuegoService, private router: ActivatedRoute) { }
+  constructor( private juegoService: JuegoService, private router: ActivatedRoute) {
+    this.juegos=this.juegoService.getAll();
+   }
 
   ngOnInit(): void {
     this.loading = true;
@@ -33,15 +36,16 @@ export class JuegoComponent implements OnInit {
         });
     }
   }
-  public aCarro(){
-    const juegoafter:JuegoModel[]=this.juegoService.getAll();
-    for(let i=0;i<juegoafter.length;i++){
-      if(juegoafter[i].id_juego==this.id){
-        this.juegoService.jsCarros.push(juegoafter[i]);
-        console.log('Existe');
-      }
+  public aCarro(id,con){
+    if(this.juegoService.jsCarros.length!=0){
+    for(let i=0;i<this.juegos.length;i++){
+      if((this.juegos[i].id_juego==id)&&(this.juegos[i].id_consola==con)){
+        this.juegoService.jsCarros.push(this.juegos[i]);
+        alert('Existe');
     }
     console.log('No existe?');
+  }
+}
   }
 
   private selectConsole(pos: number){
