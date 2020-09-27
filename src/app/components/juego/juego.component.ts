@@ -17,9 +17,12 @@ export class JuegoComponent implements OnInit {
   loading = false;
   cant = 1;
   id:Number;
-  constructor( private juegoService: JuegoService, private router: ActivatedRoute) {
-    this.juegos=this.juegoService.getAll();
-   }
+  constructor( private juegoService: JuegoService, private router: ActivatedRoute) { 
+    this.juegoService.getAll()
+    .subscribe( resp => {
+      this.juegos = resp;
+    });
+  }
 
   ngOnInit(): void {
     this.loading = true;
@@ -36,16 +39,17 @@ export class JuegoComponent implements OnInit {
         });
     }
   }
-  public aCarro(id,con){
-    if(this.juegoService.jsCarros.length!=0){
+  public aCarro(id){
+    let encontrado=false;
     for(let i=0;i<this.juegos.length;i++){
-      if((this.juegos[i].id_juego==id)&&(this.juegos[i].id_consola==con)){
+      if((this.juegos[i].id_juego==id)&&(!encontrado)){
+        this.juegos[i].cantidad=1;
+        this.juegos[i].unico=false;
+        encontrado=true;
         this.juegoService.jsCarros.push(this.juegos[i]);
-        alert('Existe');
+        console.log('Existe?');
+      }
     }
-    console.log('No existe?');
-  }
-}
   }
 
   private selectConsole(pos: number){

@@ -34,28 +34,29 @@ export class JuegosComponent implements OnInit {
     this.genero = 0;
   }
   public nJuegoCarro(item:JuegoModel){
+    let encontrado=false;
     if(this.juegoService.jsCarros.length==0){
+      item.cantidad=1;
       this.juegoService.jsCarros.push(item);
+      alert("Añadido al carro");
+
     }
     else{
       for(let i=0;i<this.juegoService.jsCarros.length;i++){
         if(item.id_juego!=this.juegoService.jsCarros[i].id_juego){
-          this.juegoService.jsCarros.push(item);
-          alert("Añadido al carro");
-        }
-        else{
-            this.verifica(item);
-            if(this.valor){
-              this.juegoService.jsCarros.push(item);
-              alert("Añadido al carro");
-            }
-            else{
-              alert("Ya se encuentra en el carro");            }
-          
+          encontrado=true;
         }
       }
+      if(encontrado){
+        item.cantidad=1;
+        this.juegoService.jsCarros.push(item);
+          alert("Añadido al carro");
+      }
+      else{
+        alert("Ya esta en el carro");
+      }
     }
-    
+  
     //this.aCarro.emit(this.juegosCarro);
   }
   public verifica(juego: JuegoModel){

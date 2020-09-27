@@ -15,7 +15,8 @@ export class JuegoModel {
     nombre: string;
     generos: number[];
     almacen: Almacen;
-
+    cantidad:number;
+    unico:boolean;
     constructor() {
 
     }

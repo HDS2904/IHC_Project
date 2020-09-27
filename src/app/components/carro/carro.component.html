@@ -67,7 +67,7 @@
                                           </td>
                                           <td>${{ item.almacen.price }}</td>
                                           <td>                                            
-                                             <input type="number" name="quantity-{{in}}" class="quantity form-control input-number" value="1" min="1" step="1" [(ngModel)]="item.id_juego">
+                                             <input type="number" class="quantity form-control input-number" readonly [(ngModel)]="item.cantidad">
                                       </td>
                                           <td>
                                               {{ item.almacen.price }}
