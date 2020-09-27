@@ -65,7 +65,7 @@
                             <ul class="dropdown">
                                     <li *ngFor="let juego of juegos;let i=index">    
                                         <div class="text pl-3" *ngIf="i<2">
-                                            <a><img src="{{juego.almacen.picture}}" alt="img" width="30px"></a>
+                                            <a [routerLink]="['/juego',juego.id_juego + '-' + juego.almacen.console]"> <img src="{{juego.almacen.picture}}" alt="img" width="30px"></a>
                                             <a>{{ juego.nombre }}</a>
                                         </div>
                                     </li>

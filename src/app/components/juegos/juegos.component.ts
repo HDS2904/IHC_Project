@@ -12,6 +12,7 @@ import { range } from 'rxjs';
 export class JuegosComponent implements OnInit {
   juegos: JuegoModel[] = [];
   loading = false;
+  valor=true;
   panel: JuegoModel[] = [];
   genero: number;
   precio = 0;
@@ -40,12 +41,31 @@ export class JuegosComponent implements OnInit {
       for(let i=0;i<this.juegoService.jsCarros.length;i++){
         if(item.id_juego!=this.juegoService.jsCarros[i].id_juego){
           this.juegoService.jsCarros.push(item);
+          alert("Añadido al carro");
+        }
+        else{
+            this.verifica(item);
+            if(this.valor){
+              this.juegoService.jsCarros.push(item);
+              alert("Añadido al carro");
+            }
+            else{
+              alert("Ya se encuentra en el carro");            }
+          
         }
       }
     }
+    
     //this.aCarro.emit(this.juegosCarro);
   }
-
+  public verifica(juego: JuegoModel){
+    this.valor==true;
+    for(let i=0;i<this.juegoService.jsCarros.length;i++){
+      if((this.juegoService.jsCarros[i].id_juego==juego.id_juego)&&(this.juegoService.jsCarros[i].almacen.console===juego.almacen.console)){
+        this.valor=false;
+      }
+    }
+  }
   public getGen( id: number) {
     this.juegoService.getGender( id )
       .subscribe( resp => {
