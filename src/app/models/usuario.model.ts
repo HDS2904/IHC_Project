@@ -12,6 +12,7 @@ export class UsuarioModel {
     imagen:string;
     tarjeta:string;
     saldo:number;
+    juegos:any[];
 
     constructor (){
         this.is_active=null;
