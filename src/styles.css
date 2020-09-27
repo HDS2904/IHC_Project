@@ -478,6 +478,10 @@ ol {
 	display: inline-block;
 }
 
+.logo_img {
+	width: 150px;
+}
+
 .header__menu ul li {
 	list-style: none;
 	display: inline-block;

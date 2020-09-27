@@ -11,6 +11,10 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { CarroComponent } from './components/carro/carro.component';
 import { CompraComponent } from './components/compra/compra.component';
+import { AyudaComponent } from './components/ayuda/ayuda.component';
+import { ServiciosComponent } from './components/servicios/servicios.component';
+import { NosotrosComponent } from './components/nosotros/nosotros.component';
+import { ContactenosComponent } from './components/contactenos/contactenos.component';
 
 
 const routes: Routes = [
@@ -22,6 +26,10 @@ const routes: Routes = [
   { path:'perfil',component:PerfilComponent, canActivate:[AuthGuard]},
   { path:'carro', component:CarroComponent},
   { path:'compra',component:CompraComponent},
+  { path:'ayuda',component:AyudaComponent},
+  { path:'servicios',component:ServiciosComponent},
+  { path:'nosotros',component:NosotrosComponent},
+  { path:'contactenos',component:ContactenosComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
