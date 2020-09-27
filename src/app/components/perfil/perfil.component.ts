@@ -6,6 +6,7 @@ import { ValidadoresService } from 'src/app/services/validadores.service';
 import {UsuarioModel} from '../../models/usuario.model';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { JuegoService } from 'src/app/services/juego.service';
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
@@ -21,9 +22,12 @@ export class PerfilComponent implements OnInit {
   forma:FormGroup;
   formaImagen:FormGroup;
   usuario:UsuarioModel;
+
+  juegos:string[] = ['aea','asd','gasda','dasda'];
   constructor(private fb:FormBuilder,
               private validadores:ValidadoresService,
               private auth:AuthService,
+              private juegoS:JuegoService,
               private renderer:Renderer2,
               private router:Router) { 
 
@@ -31,6 +35,8 @@ export class PerfilComponent implements OnInit {
     this.cargarUsuario();
     this.crearFormulario();
     this.cargarDataAlFormulario();
+    this.juegoS.getJuegosComprados(this.usuario.id);
+    
  
   }
 
