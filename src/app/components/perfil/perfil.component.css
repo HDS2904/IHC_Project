@@ -10,7 +10,7 @@
 
 
 .izquierdo label {
-    background-color: springgreen;
+    background-color: #D1E0DB;
     cursor: pointer;
     display: block;
     margin:20px 0px;
@@ -49,6 +49,6 @@
 
 .caja {
     border-radius:40px;
-    border:solid 3px slateblue;
+    border:solid 3px #44D6E9;
     margin-bottom: 50px;
 }
