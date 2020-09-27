@@ -35,7 +35,6 @@ export class PerfilComponent implements OnInit {
     this.cargarUsuario();
     this.crearFormulario();
     this.cargarDataAlFormulario();
-    this.juegoS.getJuegosComprados(this.usuario.id);
     
  
   }
