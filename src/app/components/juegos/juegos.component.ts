@@ -3,7 +3,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { JuegoModel } from 'src/app/models/juego';
 import { JuegoService } from 'src/app/services/juego.service';
 import { range } from 'rxjs';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-juegos',
   templateUrl: './juegos.component.html',
@@ -39,7 +39,11 @@ export class JuegosComponent implements OnInit {
       item.cantidad=1;
       item.unico=true;
       this.juegoService.jsCarros.push(item);
-      alert("Añadido al carro");
+      Swal.fire({
+        icon: 'info',
+        title: 'Carro',
+        text: 'Juego añadido exitosamente'
+      });
     }
     else{
       for(let i=0;i<this.juegoService.jsCarros.length;i++){
@@ -52,11 +56,18 @@ export class JuegosComponent implements OnInit {
         item.cantidad=1;
         item.unico=true;
         this.juegoService.jsCarros.push(item);
-          alert("Añadido al carro");
+        Swal.fire({
+          icon: 'info',
+          title: 'Carro',
+          text: 'Juego añadido exitosamente'
+        });
       }
       else{
-        alert("Ya esta en el carro");
-      }
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Juego existente'
+        });      }
     }
   
     //this.aCarro.emit(this.juegosCarro);
